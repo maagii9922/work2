@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<body>
+    <form action="/loginshalgah" method="POST">
+    {% csrf_token %}
+        <input name="ner" type="text" value="{{buruu}}"> 
+        <input name="code" type="password" value="{{buruu2}}">
+        <input type="submit" value="sent"> 
+    </form> 
+    {{aldaa}}
+</body>
+</html>
