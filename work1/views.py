@@ -74,7 +74,8 @@ def shalgah(request):
     print(len(h))
     if len(h)==1: 
         # return HttpResponse('OK')
-        return render(request,'home.html',{'user':h[0].name})
+        b=Baraa.objects.all()
+        return render(request,'home.html',{'user':h[0].name, 'baraa':b})
     elif len(h)==0:
         # return HttpResponse('error')
         return render(request,'login.html',{'aldaa':'aldaa garlaa','buruu':x,'buruu2':y})
