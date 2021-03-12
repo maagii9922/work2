@@ -1,14 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Hereglegch,Baraa,Tohirgoo
+from .models import Hereglegch,Baraa,Tohirgoo,Tses
 
 # def home(request):
 #     b=Baraa.objects.all()
 #     return render(request,'home.html',{'baraa':b})
 def home(request):
     t=Tohirgoo.objects.all()
-    print (t)
-    return render(request,'home.html',{'tohirgoo':t})
+    s=Tses.objects.all().order_by('-daraalal')
+    print (s)
+    return render(request,'home.html',{'tohirgoo':t,'tses':s})
 
 def login(request):
     # return HttpResponse("ggdfgd")

@@ -12,7 +12,7 @@
 <body>
     <div class="header">
         <div class="head-top">
-            <h6 class="h6">{{tohirgoo.0.word}}</h6>
+            <h6 class="h6">{{tohirgoo.0.word}}{{tses.0.word}}</h6>
             <div class="contact">
                 <h5>
                     <a href="tel:77778985">{{tohirgoo.1.word}}</a>
@@ -63,22 +63,13 @@
     </header>
     <div class="HeaderMenustyle__HeaderMenuBG-sc-1pre54-0 dCttQJ   ">
         <div  class="container">
-            <a class=" " >Гэрийн</a>
-            <a class=" " >Эмэгтэй</a>            
-            <a class=" " >Эрэгтэй</a>
-            <a class=" " >Хүүхдийн</a>
-            <a class=" " >Cпорт</a>
-            <a class=" " >Хүнс</a>
-            <a class=" " >Технологи</a>
-            <a class=" " >Гоо сайхан</a>
-            <a class=" " >Үнэт эдлэл</a>
-            <a class=" " >Бичиг хэрэг</a>
-            <span class="ml-auto"></span>
-            <a class=" " >Купон</a>
-            <a class="sale ">Шинэ</a>
-            <a class=" " >Брэндүүд</a>
-            <a class=" " >Лайфстайл</a>
-            <a class=" " >Бэлгэнд</a>
+          {% for b in tses %}
+            {% if b.nuugdsan == 0 %}
+            <a class=" " >{{b.word}}</a>
+            {% endif %}
+          {% endfor %}
+            <!-- <span class="ml-auto"></span> -->
+           
         </div>
         <img class="PromoBanner__IMG-wzzy8e-0 hDUbSi notify-img w-100" src="https://cdn5.shoppy.mn/img/36340/original/leasingBanner.jpg" alt="shoppy">
     </div>

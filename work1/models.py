@@ -12,3 +12,8 @@ class Baraa(models.Model):
 
 class Tohirgoo(models.Model):
     word=models.CharField(max_length=300)
+
+class Tses(models.Model):
+    word=models.CharField(max_length=300)
+    nuugdsan=models.IntegerField()
+    daraalal=models.IntegerField()
