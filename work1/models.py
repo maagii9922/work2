@@ -9,3 +9,6 @@ class Baraa(models.Model):
     price=models.IntegerField()
     too=models.IntegerField()
     image=models.CharField(max_length=300)
+
+class Tohirgoo(models.Model):
+    word=models.CharField(max_length=300)

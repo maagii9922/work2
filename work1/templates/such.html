@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+  <a href='/login'>Нэвтрэх</a>
+    <form action="/insert" method="POST">
+      {% csrf_token %}
+      
+      <label for="bner" class="col-form-label">Нэр</label>        
+      <input class="w-25" type="text"id="bner" value="{{bner}}" name="bner" class="form-control"/><br>
+      <label for="bprice" class="col-form-label">Үнэ</label> 
+      <input class="w-25" type="text" value="{{bprice}}"name="bprice" class="form-control"/><br>
+      <label for="btoo" class="col-form-label">Тоо</label> 
+      <input class="w-25" type="text" value="{{btoo}}" name="btoo" class="form-control"/><br>
+      <label for="bimage" class="col-form-label">Зураг</label> 
+      <input class="w-25" type="text" value="{{bimage}}" name="bimage" class="form-control"/><br>
+      <input type="submit" value="Хадгалах" class="btn btn-secondary"/>
+    </form>
+    <table style="width:100%" class="table table-striped table-hover">
+        <tr>
+            <th>Нэр</th>
+            <th>Үнэ</th>
+            <th>Тоо</th>
+            <th>Зураг</th>
+            <th>Үйлдэл</th>
+          </tr> 
+        {% for b in baraa %}
+        <tr>
+          <td>{{b.name}}</td>
+          <td>{{b.price}}</td>
+          <td>{{b.too}}</td>
+          <td><img src="{% static b.image %}" height=40></img></td>
+          <td><a class="btn btn-outline-primary" href="/zasah?bner={{b.name}}&bprice={{b.price}}&btoo={{b.too}}&bimage={{b.imege}}&bid={{b.id}}">Засах</a>
+              <a class="btn btn-outline-primary" href="/ustgah?bid={{b.id}}">Устгах</a>
+           </td>
+        </tr>        
+        {% endfor %}
+      </table>
+    Нэвтэрсэн хэрэглэгч: {{user}}
+</body>
+</html>

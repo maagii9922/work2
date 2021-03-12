@@ -5,44 +5,352 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>HOME</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link href="{% static '/style.css' %}" rel="stylesheet"/>
 </head>
 <body>
-  <a href='/login'>Нэвтрэх</a>
-    <form action="/insert" method="POST">
-      {% csrf_token %}
-      
-      <label for="bner" class="col-form-label">Нэр</label>        
-      <input class="w-25" type="text"id="bner" value="{{bner}}" name="bner" class="form-control"/><br>
-      <label for="bprice" class="col-form-label">Үнэ</label> 
-      <input class="w-25" type="text" value="{{bprice}}"name="bprice" class="form-control"/><br>
-      <label for="btoo" class="col-form-label">Тоо</label> 
-      <input class="w-25" type="text" value="{{btoo}}" name="btoo" class="form-control"/><br>
-      <label for="bimage" class="col-form-label">Зураг</label> 
-      <input class="w-25" type="text" value="{{bimage}}" name="bimage" class="form-control"/><br>
-      <input type="submit" value="Хадгалах" class="btn btn-secondary"/>
-    </form>
-    <table style="width:100%" class="table table-striped table-hover">
-        <tr>
-            <th>Нэр</th>
-            <th>Үнэ</th>
-            <th>Тоо</th>
-            <th>Зураг</th>
-            <th>Үйлдэл</th>
-          </tr> 
-        {% for b in baraa %}
-        <tr>
-          <td>{{b.name}}</td>
-          <td>{{b.price}}</td>
-          <td>{{b.too}}</td>
-          <td><img src="{% static b.image %}" height=40></img></td>
-          <td><a class="btn btn-outline-primary" href="/zasah?bner={{b.name}}&bprice={{b.price}}&btoo={{b.too}}&bimage={{b.imege}}&bid={{b.id}}">Засах</a>
-              <a class="btn btn-outline-primary" href="/ustgah?bid={{b.id}}">Устгах</a>
-           </td>
-        </tr>        
-        {% endfor %}
-      </table>
-    Нэвтэрсэн хэрэглэгч: {{user}}
+    <div class="header">
+        <div class="head-top">
+            <h6 class="h6">{{tohirgoo.0.word}}</h6>
+            <div class="contact">
+                <h5>
+                    <a href="tel:77778985">{{tohirgoo.1.word}}</a>
+                    <span>{{tohirgoo.2.word}}</span>
+                </h5>
+                <div class="help">
+                    <button type="button" class="btn-run" data-reacttour="tourButton"> {{tohirgoo.3.word}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="head-hd">
+        <div class="head-cont">
+            <div class="categories">
+                <button type="button" class="toggler " >
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="logo">
+                <p>shoppy.mn</p>
+            </div>
+            <div class="search">
+                <input class="search-input" placeholder="Эндээс бүхнийг хайж олох...">                
+                <button class="search-btn"></button>
+            </div>
+            <div class="icon-menus">
+                <button class="platform"> 
+                    <svg width="19.25" height="19.25" viewBox="0 0 19.25 19.25" class="icon icon-normal" xmlns="http://www.w3.org/2000/svg"><g stroke="var(--shoppy-blue)" stroke-linecap="round" stroke-width="1.25"><rect fill="var(--shoppy-red)" height="7" rx="2" stroke-linejoin="round" width="7" x=".625" y=".625"></rect><rect fill="var(--shoppy-green)" height="8" rx="2" stroke-linejoin="round" width="8" x="10.625" y="10.625"></rect><path d="m20 9v-3a2 2 0 0 0 -2-2h-3m-11 11v3a2 2 0 0 0 2 2h3" fill="none" class="animating-line" transform="translate(-2.375 -2.375)"></path></g></svg>
+                    <h6>Платформууд</h6>
+                </button>
+                <a class="menu menu-wishlist" data-reacttour="wishlistButton" href="/account/wishlists"><span class="icon"></span><h6>Хадгалсан</h6></a>
+            </div>
+            <a class="menu menu-wallet" href="/account/wallet/balance">
+                <span class="icon"></span>
+                <h6>Хэтэвч</h6>
+            </a>
+            <div class="CartMenustyle__CartMenuWrapper-sc-1ljp296-0 gEMOMO empty">
+                <a aria-label="миний сагс" class="menu menu-cart undefined false" href="/cart">
+                <span class="cart-icon"></span>
+                <h6>Сагс</h6>
+                </a>
+            </div>
+            <a title="нэвтрэх" aria-label="нэвтрэх/бүртгүүлэх" class="UserMenustyle__UserMenuLink-ey0tug-0 dcJxFc" href="/login">
+                <span class="profile-icon"></span>
+                <h6>Нэвтрэх</h6>
+            </a>
+        </div>
+    </header>
+    <div class="HeaderMenustyle__HeaderMenuBG-sc-1pre54-0 dCttQJ   ">
+        <div  class="container">
+            <a class=" " >Гэрийн</a>
+            <a class=" " >Эмэгтэй</a>            
+            <a class=" " >Эрэгтэй</a>
+            <a class=" " >Хүүхдийн</a>
+            <a class=" " >Cпорт</a>
+            <a class=" " >Хүнс</a>
+            <a class=" " >Технологи</a>
+            <a class=" " >Гоо сайхан</a>
+            <a class=" " >Үнэт эдлэл</a>
+            <a class=" " >Бичиг хэрэг</a>
+            <span class="ml-auto"></span>
+            <a class=" " >Купон</a>
+            <a class="sale ">Шинэ</a>
+            <a class=" " >Брэндүүд</a>
+            <a class=" " >Лайфстайл</a>
+            <a class=" " >Бэлгэнд</a>
+        </div>
+        <img class="PromoBanner__IMG-wzzy8e-0 hDUbSi notify-img w-100" src="https://cdn5.shoppy.mn/img/36340/original/leasingBanner.jpg" alt="shoppy">
+    </div>
+    <div class="mb-5 container">
+        <nav class="BreadCrumbstyle__StyledBreadCrumb-vsk1qo-0 iruSSw" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/t/home">Гэрийн</a>
+                </li>
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="col-3">
+                <div class="eNzxdO">
+                    <div class="sk-panel filter--c">
+                        <div class="sk-panel__header">Гэрийн</div>
+                        <div class="sk-panel__content">
+                            <div>
+                                <div class="shoppy-option shoppy-list__item ">
+                                    <a class="shoppy-option__text">Гал тогоо</a>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="shoppy-option shoppy-list__item ">
+                                    <a class="shoppy-option__text" href="/t/home/busad">Бусад</a>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="shoppy-option shoppy-list__item ">
+                                    <a class="shoppy-option__text" href="/t/home/dining">Хооллох өрөө</a>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="shoppy-option shoppy-list__item ">
+                                    <a class="shoppy-option__text" href="/t/home/living">Зочны өрөө</a>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="shoppy-option shoppy-list__item ">
+                                    <a class="shoppy-option__text" href="/t/home/textile">Даавуун эдлэл, хивс</a>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="ljuEXr">
+                    <div class="taxon-bar">
+                        <div class="TaxonTitleBarstyle__TaxonTitleWrapper-sc-1g7xkgl-0 bIBXRM">
+                            <h4>Гэрийн<span>1639 бүтээгдэхүүн</span></h4>
+                            <div class="sk-select SortingSelect__SelectWrapper-sc-11pie4z-0 kVMHSL">
+                                <select>
+                                    <option value="norm">Энгийн</option>
+                                    <option value="new">Шинэ нь эхэндээ</option>
+                                    <option value="earliest">Хуучин нь эхэндээ</option>
+                                    <option value="cheap">Үнэ өсөхөөр</option>
+                                    <option value="expensive">Үнэ буурахаар</option>
+                                    <option value="sale">Хямдралын хувиар</option>
+                                    <option value="new_sale">Шинэ хямдрал</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="kmfEfB">
+                            <div class="title-bar">
+                                <h4>Брэндүүд</h4>
+                                <button type="button" class="btn-expander ">Бүх брэнд
+                                    <span class="angle"></span>
+                                </button>
+                            </div>
+                            <div class="brands ">
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/1494/80x60xwebp/gipfel-d.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="Gipfel">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/23474/80x60xwebp/TOTAL22.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="TOTAL TOOLS">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/31072/80x60xwebp/madewithlove2.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="made with love ">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/5494/80x60xwebp/karaca1.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="KARACA">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/21581/80x60xwebp/ERDENET2.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="ЭРДЭНЭТ ХИВС">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/20494/80x60xwebp/DEWALT.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="DeWALT">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/23472/80x60xwebp/GROHE222.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="GROHE">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/34854/80x60xwebp/INECO2.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="INGCO">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/10647/80x60xwebp/CYPRESS222.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="CYPRESS">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/27255/80x60xwebp/DOCTOR1.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="DOCTOR AUTO CHAIN">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/23038/80x60xwebp/COINCASA22.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="COINCASA">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/17512/80x60xwebp/DISNEY22.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="Disney ">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/21585/80x60xwebp/fisher1.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="FISHER PRICE">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/38858/80x60xwebp/GATSUUR2.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="ГЭРЭЛТ ГАЦУУР">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/9404/80x60xwebp/BIALETTI222.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="BIALETTI">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/16973/80x60xwebp/stanley333.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="STANLEY.">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/47615/80x60xwebp/fararhi1.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="FARRAHI carpet">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/11354/80x60xwebp/Cozzo.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="Cozzo">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/1932/80x60xwebp/backjoy-dark.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="Back Joy">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/1188/80x60xwebp/baigal_j44.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="Baigal">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/1967/80x60xwebp/Untitled-3.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="Rotenzo">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/20722/80x60xwebp/stanley2.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="STANLEY">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/813/80x60xwebp/erdenet.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="Erdenet Home Style">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/790/80x60xwebp/ikea_j44.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="IKEA">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/16581/80x60xwebp/27.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="MUNCHKIN">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/51576/80x60xwebp/samsung-wh.png?h=762357f34abced47a3a7de51413b114615adb922" alt="Samsung">
+                                </button>
+                                <button type="button" class="brand ">
+                                    <img src="https://cdn5.shoppy.mn/img/8611/80x60xwebp/delonghi.jpg?h=762357f34abced47a3a7de51413b114615adb922" alt="Delonghi">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="TaxonTagstyle__TaxonTagWrapper-p79tgj-0 coIcNu">
+                        <button type="button" class="taxon-move-left" aria-label="move left"></button>
+                        <div class="taxons">
+                            <a class="taxon" href="/t/home/kitchen">Гал тогоо</a>
+                            <a class="taxon" href="/t/home/busad">Бусад</a>
+                            <a class="taxon" href="/t/home/dining">Хооллох өрөө</a>
+                            <a class="taxon" href="/t/home/living">Зочны өрөө</a>
+                            <a class="taxon" href="/t/home/textile">Даавуун эдлэл, хивс</a>
+                            <a class="taxon" href="/t/home/bedroom">Унтлагын өрөө</a>
+                            <a class="taxon" href="/t/home/decoration">Чимэглэл</a>
+                            <a class="taxon" href="/t/home/area-rugs">Хивс</a>
+                            <a class="taxon" href="/t/home/bathroom">Угаалгын өрөө</a>
+                            <a class="taxon" href="/t/home/children">Хүүхдийн</a>
+                            <a class="taxon" href="/t/home/laundry">Угаалга, цэвэрлэгээ</a>
+                            <a class="taxon" href="/t/home/hallway">Үүдний өрөө</a>
+                            <a class="taxon" href="/t/home/workspace">Бизнесс, ажлын өрөө</a>
+                        </div>
+                        <button type="button" class="taxon-move-right" aria-label="move right"></button>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="dgijIY">
+                                <div class="ins">
+                                    <a href="/products/diamond-200">
+                                        <img itemprop="image" alt="Хутга ирлэгч" src="https://cdn3.shoppy.mn/spree/images/914770/product/open-uri20210311-4089642-5495cz.">
+                                    </a>
+                                    <div class="new ribbon">Шинэ</div>
+                                    <a class="brand-logo" itemtype="http://schema.org/Brand" itemprop="brand" itemscope="" href="/brand/ganzo">
+                                        <meta itemprop="name" content="GANZO">
+                                        <img alt="GANZO" src="https://cdn3.shoppy.mn/stores/1848/medium/ganzo1.jpg" itemprop="logo">
+                                    </a>
+                                    <button type="button" class="btn-view-similar">Төстэйг харах</button>
+                                </div>
+                                <div class="dtl">
+                                    <h2 itemprop="name">Хутга ирлэгч</h2>
+                                    <h4 itemprop="alternateName">Хутга ирлэгч</h4>
+                                    <div class="pb">
+                                        <span itemprop="price" content="15900" class="">15,900 ₮</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="dgijIY">
+                                <div class="ins">
+                                    <a href="/products/diamond-200">
+                                        <img itemprop="image" alt="Хутга ирлэгч" src="https://cdn3.shoppy.mn/spree/images/914770/product/open-uri20210311-4089642-5495cz.">
+                                    </a>
+                                    <div class="new ribbon">Шинэ</div>
+                                    <a class="brand-logo" itemtype="http://schema.org/Brand" itemprop="brand" itemscope="" href="/brand/ganzo">
+                                        <meta itemprop="name" content="GANZO">
+                                        <img alt="GANZO" src="https://cdn3.shoppy.mn/stores/1848/medium/ganzo1.jpg" itemprop="logo">
+                                    </a>
+                                    <button type="button" class="btn-view-similar">Төстэйг харах</button>
+                                </div>
+                                <div class="dtl">
+                                    <h2 itemprop="name">Хутга ирлэгч</h2>
+                                    <h4 itemprop="alternateName">Хутга ирлэгч</h4>
+                                    <div class="pb">
+                                        <span itemprop="price" content="15900" class="">15,900 ₮</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="dgijIY">
+                                <div class="ins">
+                                    <a href="/products/diamond-200">
+                                        <img itemprop="image" alt="Хутга ирлэгч" src="https://cdn3.shoppy.mn/spree/images/914770/product/open-uri20210311-4089642-5495cz.">
+                                    </a>
+                                    <div class="new ribbon">Шинэ</div>
+                                    <a class="brand-logo" itemtype="http://schema.org/Brand" itemprop="brand" itemscope="" href="/brand/ganzo">
+                                        <meta itemprop="name" content="GANZO">
+                                        <img alt="GANZO" src="https://cdn3.shoppy.mn/stores/1848/medium/ganzo1.jpg" itemprop="logo">
+                                    </a>
+                                    <button type="button" class="btn-view-similar">Төстэйг харах</button>
+                                </div>
+                                <div class="dtl">
+                                    <h2 itemprop="name">Хутга ирлэгч</h2>
+                                    <h4 itemprop="alternateName">Хутга ирлэгч</h4>
+                                    <div class="pb">
+                                        <span itemprop="price" content="15900" class="">15,900 ₮</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="dgijIY">
+                                <div class="ins">
+                                    <a href="/products/diamond-200">
+                                        <img itemprop="image" alt="Хутга ирлэгч" src="https://cdn3.shoppy.mn/spree/images/914770/product/open-uri20210311-4089642-5495cz.">
+                                    </a>
+                                    <div class="new ribbon">Шинэ</div>
+                                    <a class="brand-logo" itemtype="http://schema.org/Brand" itemprop="brand" itemscope="" href="/brand/ganzo">
+                                        <meta itemprop="name" content="GANZO">
+                                        <img alt="GANZO" src="https://cdn3.shoppy.mn/stores/1848/medium/ganzo1.jpg" itemprop="logo">
+                                    </a>
+                                    <button type="button" class="btn-view-similar">Төстэйг харах</button>
+                                </div>
+                                <div class="dtl">
+                                    <h2 itemprop="name">Хутга ирлэгч</h2>
+                                    <h4 itemprop="alternateName">Хутга ирлэгч</h4>
+                                    <div class="pb">
+                                        <span itemprop="price" content="15900" class="">15,900 ₮</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </body>
 </html>
