@@ -87,33 +87,15 @@
                     <div class="sk-panel filter--c">
                         <div class="sk-panel__header">Гэрийн</div>
                         <div class="sk-panel__content">
+                        {% for b in rowtses %}
+                            {% if b.nuugdsan == 0 %}
                             <div>
-                                <div class="shoppy-option shoppy-list__item ">
-                                    <a class="shoppy-option__text">Гал тогоо</a>
+                                <div class="shoppy-option shoppy-list__item ">                               
+                                    <a class="shoppy-option__text">{{b.word}}</a>
                                 </div>
                             </div>
-                            <div>
-                                <div class="shoppy-option shoppy-list__item ">
-                                    <a class="shoppy-option__text" href="/t/home/busad">Бусад</a>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="shoppy-option shoppy-list__item ">
-                                    <a class="shoppy-option__text" href="/t/home/dining">Хооллох өрөө</a>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="shoppy-option shoppy-list__item ">
-                                    <a class="shoppy-option__text" href="/t/home/living">Зочны өрөө</a>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="shoppy-option shoppy-list__item ">
-                                    <a class="shoppy-option__text" href="/t/home/textile">Даавуун эдлэл, хивс</a>
-                                </div>
-                            </div>
-
-
+                            {% endif %}
+                        {% endfor %}
 
                         </div>
                     </div>
@@ -248,7 +230,9 @@
                         <button type="button" class="taxon-move-right" aria-label="move right"></button>
                     </div>
                     <div class="row">
-                        <div class="col-6 col-sm-4 col-md-3">
+                        {% for b in shine %}
+                            {% if b.nuugdsan == 0 %}
+                        <div class="col-6 col-sm-4 col-md-3">                         
                             <div class="dgijIY">
                                 <div class="ins">
                                     <a href="/products/diamond-200">
@@ -270,72 +254,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 col-sm-4 col-md-3">
-                            <div class="dgijIY">
-                                <div class="ins">
-                                    <a href="/products/diamond-200">
-                                        <img itemprop="image" alt="Хутга ирлэгч" src="https://cdn3.shoppy.mn/spree/images/914770/product/open-uri20210311-4089642-5495cz.">
-                                    </a>
-                                    <div class="new ribbon">Шинэ</div>
-                                    <a class="brand-logo" itemtype="http://schema.org/Brand" itemprop="brand" itemscope="" href="/brand/ganzo">
-                                        <meta itemprop="name" content="GANZO">
-                                        <img alt="GANZO" src="https://cdn3.shoppy.mn/stores/1848/medium/ganzo1.jpg" itemprop="logo">
-                                    </a>
-                                    <button type="button" class="btn-view-similar">Төстэйг харах</button>
-                                </div>
-                                <div class="dtl">
-                                    <h2 itemprop="name">Хутга ирлэгч</h2>
-                                    <h4 itemprop="alternateName">Хутга ирлэгч</h4>
-                                    <div class="pb">
-                                        <span itemprop="price" content="15900" class="">15,900 ₮</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-4 col-md-3">
-                            <div class="dgijIY">
-                                <div class="ins">
-                                    <a href="/products/diamond-200">
-                                        <img itemprop="image" alt="Хутга ирлэгч" src="https://cdn3.shoppy.mn/spree/images/914770/product/open-uri20210311-4089642-5495cz.">
-                                    </a>
-                                    <div class="new ribbon">Шинэ</div>
-                                    <a class="brand-logo" itemtype="http://schema.org/Brand" itemprop="brand" itemscope="" href="/brand/ganzo">
-                                        <meta itemprop="name" content="GANZO">
-                                        <img alt="GANZO" src="https://cdn3.shoppy.mn/stores/1848/medium/ganzo1.jpg" itemprop="logo">
-                                    </a>
-                                    <button type="button" class="btn-view-similar">Төстэйг харах</button>
-                                </div>
-                                <div class="dtl">
-                                    <h2 itemprop="name">Хутга ирлэгч</h2>
-                                    <h4 itemprop="alternateName">Хутга ирлэгч</h4>
-                                    <div class="pb">
-                                        <span itemprop="price" content="15900" class="">15,900 ₮</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-4 col-md-3">
-                            <div class="dgijIY">
-                                <div class="ins">
-                                    <a href="/products/diamond-200">
-                                        <img itemprop="image" alt="Хутга ирлэгч" src="https://cdn3.shoppy.mn/spree/images/914770/product/open-uri20210311-4089642-5495cz.">
-                                    </a>
-                                    <div class="new ribbon">Шинэ</div>
-                                    <a class="brand-logo" itemtype="http://schema.org/Brand" itemprop="brand" itemscope="" href="/brand/ganzo">
-                                        <meta itemprop="name" content="GANZO">
-                                        <img alt="GANZO" src="https://cdn3.shoppy.mn/stores/1848/medium/ganzo1.jpg" itemprop="logo">
-                                    </a>
-                                    <button type="button" class="btn-view-similar">Төстэйг харах</button>
-                                </div>
-                                <div class="dtl">
-                                    <h2 itemprop="name">Хутга ирлэгч</h2>
-                                    <h4 itemprop="alternateName">Хутга ирлэгч</h4>
-                                    <div class="pb">
-                                        <span itemprop="price" content="15900" class="">15,900 ₮</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            {% endif %}
+                        {% endfor %}                   
                     </div>
                 </div>
             </div>

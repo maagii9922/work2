@@ -17,3 +17,13 @@ class Tses(models.Model):
     word=models.CharField(max_length=300)
     nuugdsan=models.IntegerField()
     daraalal=models.IntegerField()
+
+class Rowtses(models.Model):
+    word=models.CharField(max_length=300)
+    nuugdsan=models.IntegerField(default=0)
+    daraalal=models.IntegerField()
+
+class Shine(models.Model):
+    word=models.CharField(max_length=300)
+    nuugdsan=models.IntegerField(default=0)
+    daraalal=models.IntegerField()
